@@ -1,18 +1,24 @@
-📰 Artikel API 🚀
-✨ Artikel API adalah proyek sederhana yang menggunakan Google Cloud Functions untuk menyajikan daftar artikel dalam format JSON. API ini memungkinkan pengguna untuk mengakses informasi artikel seperti judul, ringkasan, isi, gambar, tanggal publikasi, dan sumber. Semua gambar disimpan di Google Cloud Storage Bucket, memastikan efisiensi dan aksesibilitas data.
 
-🌟 Fitur Utama
-✅ Daftar Artikel: Menyediakan daftar artikel lengkap dalam format JSON.
-✅ Endpoint HTTP: Mudah diakses melalui endpoint HTTP berbasis Google Cloud Functions.
-✅ Penyimpanan Gambar di Cloud: Gambar artikel di-host pada Google Cloud Storage Bucket.
-✅ Respons JSON: Format data yang mudah diolah aplikasi klien.
-✅ Dukungan CORS: Kompatibel dengan berbagai platform dan aplikasi.
 
-🛠 Struktur Data Artikel
-Berikut adalah struktur data yang dikembalikan oleh API:
+# 📰 Artikel API  
 
-json
-Salin kode
+✨ **Artikel API** adalah API sederhana yang menyajikan daftar artikel dalam format JSON. Proyek ini menggunakan **Google Cloud Functions** untuk menyediakan endpoint HTTP, dan gambar artikel disimpan dengan aman di **Google Cloud Storage Bucket**. 🚀  
+
+---
+
+## 🌟 Fitur Utama  
+
+✅ **Daftar Artikel**: Mendukung penyajian artikel dengan struktur data lengkap.  
+✅ **Endpoint HTTP**: Mudah diakses melalui HTTP.  
+✅ **Penyimpanan Gambar Cloud**: Semua gambar di-host di **Google Cloud Storage Bucket** untuk kecepatan dan efisiensi.  
+✅ **Format Respons JSON**: Data rapi dan mudah digunakan aplikasi klien.  
+✅ **Dukungan CORS**: Kompatibel untuk integrasi lintas platform.  
+
+---
+
+## 🛠 Struktur Data Artikel  
+
+```json
 {
   "id": 1,
   "title": "Judul Artikel",
@@ -22,48 +28,63 @@ Salin kode
   "published_date": "Tanggal publikasi artikel",
   "source": "Sumber artikel asli"
 }
-Contoh URL gambar:
-https://storage.googleapis.com/<nama-bucket>/<nama-file-gambar>
+```  
 
-🚀 Cara Instalasi & Deployment
-🔧 Persyaratan
-🖥 Node.js (pastikan versi terbaru terinstal di komputer Anda).
-☁ Akun Google Cloud dengan project aktif.
-🛠 Google Cloud SDK yang sudah dikonfigurasi.
-📦 Cloud Storage Bucket untuk menyimpan gambar artikel.
-📥 Langkah Instalasi
-Clone repository ke komputer Anda:
-bash
-Salin kode
-git clone https://github.com/username/artikel-api.git
-cd artikel-api
-Install dependensi:
-bash
-Salin kode
-npm install
-☁ Deployment ke Google Cloud
-Buat Cloud Storage Bucket untuk menyimpan gambar. Gunakan nama yang unik.
-bash
-Salin kode
-gsutil mb gs://<nama-bucket>
-Upload gambar ke bucket Anda:
-bash
-Salin kode
-gsutil cp path/to/image.jpg gs://<nama-bucket>
-Deploy fungsi ke Google Cloud Functions:
-bash
-Salin kode
-gcloud functions deploy getArticles \
---runtime nodejs18 \
---trigger-http \
---allow-unauthenticated
-Setelah selesai, Anda akan mendapatkan URL fungsi. 🎉
-🔗 Endpoint API
-Metode: GET
-URL: URL fungsi yang diberikan Google Cloud.
-📄 Contoh Respons JSON
-json
-Salin kode
+🔗 **Contoh URL Gambar**:  
+`https://storage.googleapis.com/<nama-bucket>/<nama-file-gambar>`  
+
+---
+
+## 🚀 Cara Instalasi & Deployment  
+
+### 🔧 Persyaratan  
+
+- 🖥 **Node.js** (pastikan versi terbaru).  
+- ☁ **Akun Google Cloud** dengan project aktif.  
+- 🛠 **Google Cloud SDK** yang dikonfigurasi.  
+- 📦 **Cloud Storage Bucket** untuk penyimpanan gambar.  
+
+### 📥 Langkah Instalasi  
+
+1. **Clone repository**:  
+   ```bash
+   git clone https://github.com/username/artikel-api.git
+   cd artikel-api
+   ```  
+2. **Install dependensi**:  
+   ```bash
+   npm install
+   ```  
+
+### ☁ Deployment ke Google Cloud  
+
+1. **Buat Cloud Storage Bucket** untuk gambar:  
+   ```bash
+   gsutil mb gs://<nama-bucket>
+   ```  
+2. **Upload gambar** ke bucket:  
+   ```bash
+   gsutil cp path/to/image.jpg gs://<nama-bucket>
+   ```  
+3. **Deploy fungsi** ke Google Cloud Functions:  
+   ```bash
+   gcloud functions deploy getArticles \
+   --runtime nodejs18 \
+   --trigger-http \
+   --allow-unauthenticated
+   ```  
+
+4. **Dapatkan URL fungsi** dari output terminal. 🎉  
+
+---
+
+## 🔗 Endpoint API  
+
+- **Metode**: `GET`  
+- **URL**: URL fungsi yang diberikan Google Cloud.  
+
+### 📄 Contoh Respons JSON  
+```json
 {
   "articles": [
     {
@@ -77,14 +98,21 @@ Salin kode
     }
   ]
 }
-💻 Pengembangan
-🛠 Untuk menambahkan artikel baru:
+```  
 
-Tambahkan data artikel ke array articles di kode fungsi.
-Upload gambar terkait ke Cloud Storage Bucket Anda.
-Gunakan URL bucket sebagai image_url dalam data JSON.
-📜 Lisensi
-Proyek ini dilisensikan di bawah MIT License. Silakan gunakan, modifikasi, dan bagikan proyek ini! 💖
+---
 
-💡 Tips: Jangan lupa untuk mengatur bucket Anda menjadi publik jika ingin gambar dapat diakses oleh semua pengguna. 😊
+## 💻 Pengembangan  
+
+Untuk menambahkan artikel baru:  
+
+1. Tambahkan data artikel ke array `articles` di kode fungsi.  
+2. Upload gambar artikel ke **Cloud Storage Bucket** Anda.  
+3. Gunakan URL bucket sebagai `image_url` dalam data JSON.  
+
+---
+
+
+
+> **🚀 Enjoy the simplicity of Artikel API!** 😊  
 
